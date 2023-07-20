@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build: 
+      context: /var/www/html/php-docker  
+      dockerfile: Dockerfile
+    container_name: tm-management
+    restart: unless-stopped
+    ports:
+      - "8004:80"
+    volumes:
+      - .:/var/www/html
+    networks:
+      - php-docker_phpnetwork
+
+#Docker Networks
+networks:
+  php-docker_phpnetwork:
+    external: true

@@ -1,0 +1,20 @@
+.w-100 {
+    width: 100%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.h-35 {
+    height: 35rem;
+}
+
+.display-flex {
+    display: flex;
+    padding: 30px;
+}
+
+.border-5 {
+    border-width: 2rem !important;
+}

@@ -1,0 +1,32 @@
+.font-sans {
+    font-family: sans-serif;
+}
+
+.background-grey {
+    background-color: grey;
+}
+
+.m-90 {
+    max-width: 90%;
+}
+
+.margin-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bg-color {
+    background-color: #002b5c;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.border-radius-pill {
+    border-radius: 50px;
+}
+
+.hg-100 {
+    height: 100%;
+}

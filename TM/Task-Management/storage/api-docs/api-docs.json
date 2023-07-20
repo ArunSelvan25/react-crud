@@ -1,0 +1,564 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "The API Documentation",
+        "description": "This document is used to know api's status and run the api's",
+        "contact": {
+            "email": "arunbalajiselvan@gmail.com"
+        },
+        "version": "3.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8004/public/api/v1",
+            "description": "API Server"
+        }
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login User",
+                "description": "Login User",
+                "operationId": "postLogin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "test@domain.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "Password@12345"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "User logout",
+                "description": "Logout user",
+                "operationId": "logout",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register User",
+                "description": "Register User",
+                "operationId": "postRegister",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Test User"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "test@domain.com"
+                                    },
+                                    "role": {
+                                        "type": "string",
+                                        "example": "Developer"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "Password@12345"
+                                    },
+                                    "confirm_password": {
+                                        "type": "string",
+                                        "example": "Password@12345"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/dashboard": {
+            "get": {
+                "tags": [
+                    "Dashboard"
+                ],
+                "summary": "User Dashboard",
+                "description": "Logged in user dashboard",
+                "operationId": "dashboard",
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/project/store": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Create project",
+                "description": "create new project",
+                "operationId": "createProject",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "NotifyNow"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/project/list": {
+            "get": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "List projects",
+                "description": "list all projects",
+                "operationId": "listProject",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/project/update": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Update project",
+                "description": "Update project",
+                "operationId": "updateProject",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "PHP"
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/project/delete/{id}": {
+            "get": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Delete project",
+                "description": "Delete project by id",
+                "operationId": "deleteProject",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "{Need to pass id as parameter}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/source-control/store": {
+            "post": {
+                "tags": [
+                    "Source Control"
+                ],
+                "summary": "Create new souce control",
+                "description": "create new souce control",
+                "operationId": "createSourceControl",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "githuh"
+                                    },
+                                    "link": {
+                                        "type": "string",
+                                        "example": "examplelink.com"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/source-control/list": {
+            "get": {
+                "tags": [
+                    "Source Control"
+                ],
+                "summary": "List source control",
+                "description": "list all source control",
+                "operationId": "listSourceControl",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/source-control/update": {
+            "post": {
+                "tags": [
+                    "Source Control"
+                ],
+                "summary": "Update source control",
+                "description": "Update source control",
+                "operationId": "updateSourceControl",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "githuh"
+                                    },
+                                    "link": {
+                                        "type": "examplelink.com",
+                                        "example": "1"
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/source-control/delete/{id}": {
+            "get": {
+                "tags": [
+                    "Source Control"
+                ],
+                "summary": "Delete source control",
+                "description": "Delete source control by id",
+                "operationId": "deleteSourceControl",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "{Need to pass id as parameter}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/source-control/list/{id}": {
+            "get": {
+                "tags": [
+                    "Source Control"
+                ],
+                "summary": "Get single source control",
+                "description": "List single source control by id",
+                "operationId": "getSourceControlById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "{Need to pass id as parameter}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/team/store": {
+            "post": {
+                "tags": [
+                    "Team"
+                ],
+                "summary": "Create team",
+                "description": "create new team",
+                "operationId": "createTeam",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "PHP"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/team/list": {
+            "get": {
+                "tags": [
+                    "Team"
+                ],
+                "summary": "List teams",
+                "description": "list all teams",
+                "operationId": "listTeam",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/team/update": {
+            "post": {
+                "tags": [
+                    "Team"
+                ],
+                "summary": "Update team",
+                "description": "Update team",
+                "operationId": "updateTeam",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "PHP"
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/team/delete/{id}": {
+            "get": {
+                "tags": [
+                    "Team"
+                ],
+                "summary": "Delete team",
+                "description": "Delete team by id",
+                "operationId": "deleteTeam",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "{Need to pass id as parameter}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Task Management",
+            "description": "API Endpoints of Task Management"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "Authorization": {
+                "type": "http",
+                "description": "Provide token to access api",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        {
+            "Authorization": []
+        }
+    ]
+}

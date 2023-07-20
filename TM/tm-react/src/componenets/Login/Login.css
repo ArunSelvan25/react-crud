@@ -1,0 +1,41 @@
+.mw-50 {
+    max-width: 50%;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+}
+
+.float-right {
+    float: right;
+}
+
+.dis-flex {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.bg-blue {
+    background-color: blue;
+}
+
+.bg-gray {
+    background-color: gray;
+}
+.h-screen {
+    height: 100vh;
+}
+
+.asdsa {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
